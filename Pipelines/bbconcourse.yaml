@@ -1,0 +1,28 @@
+---
+resources:
+  - name: boards
+    type: git
+    source:
+      uri: https://github.com/P00JAGP/Boards.git
+      branch: main
+
+jobs:
+  - name: bulitin-board-job
+    public: true
+    serial: true
+    plan:
+      - get: boards
+        trigger: true
+      - task: bbdb-accept-records
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: charleykjose/bbdatabase:v3
+          run:
+            path: go
+            args: 
+              - BBDB/BBDB.go
+
+              
