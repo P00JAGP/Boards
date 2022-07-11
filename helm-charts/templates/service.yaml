@@ -1,0 +1,14 @@
+{{- if .Values.serviceEnabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  {{- include "helm-charts.serviceName" . | nindent 2 }}
+spec:
+#  type: NodePort
+  selector:
+  {{- include "helm-charts.labels" . | nindent 4 }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+{{- end }}

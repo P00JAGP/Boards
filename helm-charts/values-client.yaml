@@ -1,0 +1,4 @@
+image: charleykjose/client-bob:v2
+tag: v3
+deploymentName: bbclient
+serviceEnabled: false

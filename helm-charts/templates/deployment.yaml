@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentName }}
+  labels:
+  {{- include "helm-charts.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+    {{- include "helm-charts.labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+      {{- include "helm-charts.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Values.deploymentName }}
+        image: {{ .Values.image }}
+        ports:
+        - containerPort: 8080

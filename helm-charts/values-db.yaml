@@ -1,0 +1,5 @@
+image: charleykjose/bbdatabase:v3
+tag: v3
+deploymentName: bbdb
+serviceName: bbdb-service
+serviceEnabled: true

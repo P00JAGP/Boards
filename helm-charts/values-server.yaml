@@ -1,0 +1,5 @@
+image: charleykjose/bbserver:v2
+tag: v3
+deploymentName: bbserver
+serviceName: bbserver-service
+serviceEnabled: true
